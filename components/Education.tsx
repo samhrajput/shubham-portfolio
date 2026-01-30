@@ -36,7 +36,7 @@ Languages: ${PERSONAL_INFO.extras.languages.join(', ')}
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `Shubham_Kumar_Resume.pdf`;
+    link.download = `resume/resume.pdf`;
     
     setTimeout(() => {
       document.body.appendChild(link);
