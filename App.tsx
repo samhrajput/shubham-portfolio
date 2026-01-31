@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
+import GitHubActivity from "./components/GitHubActivity";
 import Skills from "./components/Skills";
 import Achievements from "./components/Achievements";
 import Contact from "./components/Contact";
@@ -18,6 +20,7 @@ const App: React.FC = () => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -36,6 +39,7 @@ const App: React.FC = () => {
         <About />
         <Education />
         <Projects />
+        <GitHubActivity />
         <Skills />
         <Achievements />
         <Contact />
@@ -49,11 +53,12 @@ const App: React.FC = () => {
       {/* Scroll To Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 left-8 p-3 rounded-full bg-[#E59173] text-white shadow-lg transition-all duration-300 z-50 hover:scale-110 active:scale-95 ${
-          showScrollTop
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-10 pointer-events-none"
-        }`}
+        className={`fixed bottom-24 right-8 p-3 rounded-full bg-[#E59173] text-white shadow-xl transition-all duration-300 z-50
+          hover:scale-110 active:scale-95 ${
+            showScrollTop
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-10 pointer-events-none"
+          }`}
         aria-label="Scroll to top"
       >
         <svg

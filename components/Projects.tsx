@@ -4,19 +4,9 @@ import { PROJECTS_DATA } from "../constants";
 import { Project } from "../types";
 import ProjectModal from "./ProjectModal";
 
-const CATEGORIES = [
-  "All","Full-Stack","React","Spring Boot","Java","PostgreSQL",
-  "TailwindCSS","REST APIs","Frontend","JavaScript","MySQL","PHP"
-];
-
 const container = {
   hidden: { opacity: 0, y: 12 },
   visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.08, when: "beforeChildren" } }
-};
-
-const chip = {
-  hidden: { opacity: 0, y: 8, scale: 0.98 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.32 } }
 };
 
 const card = {
@@ -25,13 +15,8 @@ const card = {
 };
 
 const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const reduceMotion = useReducedMotion();
-
-  const filteredProjects = PROJECTS_DATA.filter(
-    (p) => activeFilter === "All" || p.tags.includes(activeFilter)
-  );
 
   return (
     <motion.section
@@ -56,26 +41,8 @@ const Projects: React.FC = () => {
         A few selected works that blend functionality, creativity, and technical precision.
       </motion.p>
 
-      <motion.div className="flex flex-wrap gap-3 mb-16" variants={reduceMotion ? undefined : {}}>
-        {CATEGORIES.map((cat) => (
-          <motion.button
-            key={cat}
-            onClick={() => setActiveFilter(cat)}
-            variants={reduceMotion ? undefined : chip}
-            whileTap={{ scale: 0.96 }}
-            className={`px-5 py-2 rounded-full text-xs font-bold transition-all border ${
-              activeFilter === cat
-                ? "bg-[#E59173] text-white border-[#E59173]"
-                : "bg-white/5 text-slate-400 border-white/5 hover:border-white/10"
-            }`}
-          >
-            {cat}
-          </motion.button>
-        ))}
-      </motion.div>
-
       <motion.div className="grid md:grid-cols-2 gap-8" variants={reduceMotion ? undefined : {}}>
-        {filteredProjects.map((project, idx) => (
+        {PROJECTS_DATA.map((project, idx) => (
           <motion.article
             key={project.title + idx}
             className="group relative bg-[#0D121F]/40 border border-white/5 rounded-3xl p-8 overflow-hidden"
@@ -85,8 +52,10 @@ const Projects: React.FC = () => {
             style={{ willChange: "transform, box-shadow" }}
           >
             {/* Hover glow outline */}
-            <div className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                 aria-hidden>
+            <div
+              className="absolute inset-0 pointer-events-none transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+              aria-hidden
+            >
               <div className="absolute inset-0 rounded-3xl ring-1 ring-[#E59173]/20 blur-sm"></div>
             </div>
 
@@ -103,7 +72,10 @@ const Projects: React.FC = () => {
 
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tags.map((tag) => (
-                <span key={tag} className="px-3 py-1.5 bg-[#E59173]/10 text-[#E59173] rounded-full text-xs font-bold">
+                <span
+                  key={tag}
+                  className="px-3 py-1.5 bg-[#E59173]/10 text-[#E59173] rounded-full text-xs font-bold"
+                >
                   {tag}
                 </span>
               ))}
@@ -115,7 +87,6 @@ const Projects: React.FC = () => {
                 className="relative flex items-center gap-2 text-sm font-bold text-slate-200 hover:text-[#E59173] transition-colors"
                 whileHover={reduceMotion ? undefined : { scale: 1.02 }}
               >
-                {/* icon reveal on hover */}
                 <motion.span
                   className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/6 text-slate-200"
                   initial={{ x: -6, opacity: 0 }}
@@ -125,10 +96,7 @@ const Projects: React.FC = () => {
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
                 </motion.span>
-
                 <span>View Project</span>
-
-                {/* underline slide on hover */}
                 <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[#E59173] transition-all group-hover:w-full"></span>
               </motion.button>
 

@@ -13,13 +13,20 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 60 },
+  hidden: {
+    opacity: 0,
+    y: 80,
+    scale: 0.92,
+    filter: "blur(8px)",
+  },
   visible: {
     opacity: 1,
     y: 0,
+    scale: 1,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.6,
-      ease: "easeOut",
+      duration: 0.9,
+      ease: [0.16, 1, 0.3, 1], // smooth premium easing
     },
   },
 };
@@ -28,31 +35,34 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="py-24 px-6 max-w-7xl mx-auto overflow-hidden"
+      className="relative py-28 px-6 max-w-7xl mx-auto overflow-hidden"
     >
+      {/* subtle background glow */}
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#E59173]/10 blur-[150px] rounded-full -z-10" />
+
       {/* Heading */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        initial={{ opacity: 0, y: 50, filter: "blur(6px)" }}
+        whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="mb-16"
+        className="mb-20"
       >
         <h2 className="text-6xl font-extrabold text-white mb-4">
           Education
         </h2>
-        <p className="text-slate-400 text-lg">
+        <p className="text-slate-400 text-lg max-w-xl">
           My academic journey and qualifications.
         </p>
       </motion.div>
 
       {/* Timeline */}
       <motion.div
-        className="relative border-l-2 border-slate-800 ml-4 space-y-12 pb-12"
+        className="relative border-l border-slate-800/80 ml-4 space-y-16 pb-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }}
+        viewport={{ once: true, margin: "-80px" }}
       >
         {EDUCATION_DATA.map((item, index) => (
           <motion.div
@@ -62,33 +72,50 @@ const Education = () => {
           >
             {/* Timeline Dot */}
             <span
-              className={`absolute -left-[9px] top-2 w-4 h-4 rounded-full border-2 border-slate-900 ${
+              className={`absolute -left-[10px] top-6 w-4 h-4 rounded-full border-2 ${
                 index === 0
-                  ? "bg-[#E59173]"
-                  : "bg-slate-700"
+                  ? "bg-[#E59173] border-[#E59173]/70 shadow-[0_0_12px_rgba(229,145,115,0.6)]"
+                  : "bg-slate-700 border-slate-600"
               }`}
             />
 
             {/* Card */}
             <motion.div
-              whileHover={{ scale: 1.03, y: -4 }}
-              transition={{ type: "spring", stiffness: 200 }}
-              className="bg-[#0D121F]/40 border border-white/5 p-8 rounded-2xl hover:border-white/10 hover:shadow-xl hover:shadow-black/30"
+              whileHover={{
+                y: -8,
+                scale: 1.03,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 180,
+                damping: 14,
+              }}
+              className="
+                relative bg-[#0D121F]/50
+                backdrop-blur-xl
+                border border-white/10
+                p-8 rounded-2xl
+                shadow-[0_20px_40px_rgba(0,0,0,0.35)]
+                hover:border-[#E59173]/30
+                hover:shadow-[0_30px_70px_rgba(0,0,0,0.55)]
+                transition-all duration-500
+              "
             >
-              <span className="text-xs font-bold text-[#E59173] uppercase tracking-widest block mb-2">
+              {/* period */}
+              <span className="text-xs font-bold text-[#E59173] uppercase tracking-widest block mb-3">
                 {item.period}
               </span>
 
-              <h3 className="text-xl font-bold text-white mb-1">
+              <h3 className="text-2xl font-semibold text-white mb-1">
                 {item.degree}
               </h3>
 
-              <p className="text-slate-400 text-sm mb-4">
+              <p className="text-slate-400 mb-4">
                 {item.institution}
               </p>
 
               {item.score && (
-                <p className="text-slate-500 text-sm font-medium">
+                <p className="text-slate-500 font-medium">
                   {item.score}
                 </p>
               )}
