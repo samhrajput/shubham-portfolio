@@ -1,14 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ✅ GLOBAL BACKGROUND FIX */
-html,
-body,
-#root {
-  background-color: #05060a;
-  min-height: 100%;
-}
 
 
 * {

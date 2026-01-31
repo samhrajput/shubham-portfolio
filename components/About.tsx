@@ -7,10 +7,6 @@ const About: React.FC = () => {
       id="about"
       className="relative py-24 overflow-hidden"
     >
-      {/* SAME background glow as Hero */}
-      <div className="absolute inset-0 bg-[#05060a]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-        w-[700px] h-[700px] bg-[#E59173]/10 blur-[140px] rounded-full pointer-events-none" />
 
       {/* Content */}
       <div className="relative px-6 max-w-7xl mx-auto">

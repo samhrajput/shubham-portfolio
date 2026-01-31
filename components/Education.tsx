@@ -37,8 +37,6 @@ const Education = () => {
       id="education"
       className="relative py-28 px-6 max-w-7xl mx-auto overflow-hidden"
     >
-      {/* subtle background glow */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#E59173]/10 blur-[150px] rounded-full -z-10" />
 
       {/* Heading */}
       <motion.div

@@ -19,12 +19,6 @@ const Hero: React.FC = () => {
   return (
     <section className="relative pt-32 pb-20 min-h-[95vh] flex items-center justify-center text-center overflow-hidden px-6">
 
-      {/* ===== Background Glow Orbs ===== */}
-      <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#E59173]/20 blur-[160px] rounded-full -z-10" />
-      <div className="absolute bottom-[-200px] right-[-100px] w-[500px] h-[500px] bg-purple-500/10 blur-[180px] rounded-full -z-10" />
-
-      {/* ===== Glass Depth Layer ===== */}
-      <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-[2px] -z-10" />
 
       {/* ===== Content ===== */}
       <div

@@ -5,6 +5,8 @@ import { PERSONAL_INFO } from '../constants';
 const Achievements: React.FC = () => {
   return (
     <section id="achievements" className="py-24 px-6 max-w-7xl mx-auto">
+      
+
       <div className="grid md:grid-cols-2 gap-16 items-start">
         <div className="space-y-10">
           <h2 className="text-4xl font-bold text-white mb-2">Certifications & Achievements</h2>
@@ -59,6 +61,7 @@ const Achievements: React.FC = () => {
           </div>
         </div>
       </div>
+      
     </section>
   );
 };
