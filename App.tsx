@@ -30,11 +30,19 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen selection:bg-[#E59173] selection:text-white">
+    <div className="relative min-h-screen selection:bg-[#E59173] selection:text-white overflow-hidden">
+      {/* ========= GLOBAL BACKGROUND ========= */}
+      <div className="fixed inset-0 -z-50 bg-gradient-to-b from-black via-[#0B0F1C] to-black" />
+
+      {/* ========= GLOBAL AMBIENT GLOWS ========= */}
+      <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-[#E59173]/10 blur-[160px] rounded-full -z-40 pointer-events-none" />
+      <div className="fixed top-[-200px] right-[-200px] w-[600px] h-[600px] bg-[#E59173]/5 blur-[140px] rounded-full -z-40 pointer-events-none" />
+
+      {/* ========= UI ========= */}
       <Cursor />
       <Header />
 
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Education />
@@ -47,10 +55,10 @@ const App: React.FC = () => {
 
       <Footer />
 
-      {/* Floating Resume Button */}
+      {/* ========= FLOATING BUTTONS ========= */}
       <FloatingResumeButton />
 
-      {/* Scroll To Top Button */}
+      {/* Scroll To Top */}
       <button
         onClick={scrollToTop}
         className={`fixed bottom-24 right-8 p-3 rounded-full bg-[#E59173] text-white shadow-xl transition-all duration-300 z-50

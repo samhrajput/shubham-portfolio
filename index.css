@@ -1,3 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ GLOBAL BACKGROUND FIX */
+html,
+body,
+#root {
+  background-color: #05060a;
+  min-height: 100%;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +29,3 @@
   animation: spinSlow 3s linear infinite;
 }
 
-:root {
-  --accent: 229 145 115; /* #E59173 */
-}
