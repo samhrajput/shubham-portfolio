@@ -24,7 +24,7 @@ export const EDUCATION_DATA: Education[] = [
     period: "2023 – Expected 2027",
     degree: "Bachelor of Technology in Electronics And Communication Engineering",
     institution: "Haldia Institute of Technology",
-    score: "CGPA – 7.31"
+    score: "CGPA – 7.32"
   },
   {
     period: "2021 – 2023",
@@ -56,35 +56,32 @@ export const PROJECTS_DATA: Project[] = [
   }
 ];
 
-export const SKILLS_DATA: SkillCategory[] = [
-  {
-    name: "Languages",
-    icon: "code",
-    skills: ["Java", "JavaScript", "C", "SQL"]
-  },
+export const SKILLS_DATA = [
   {
     name: "Frontend",
-    icon: "layout",
-    skills: ["React", "HTML5/CSS3", "Tailwind CSS"]
+    emoji: "🎨",
+    skills: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
   },
   {
     name: "Backend",
-    icon: "database",
-    skills: ["Spring Boot", "REST APIs", "Node.js"]
-  },
-  {
-    name: "Databases",
-    icon: "server",
-    skills: ["MySQL", "PostgreSQL", "MongoDB"]
+    emoji: "🧠",
+    skills: ["Node", "Express", "Java", "MongoDB", "MySQL"],
   },
   {
     name: "Tools",
-    icon: "settings",
-    skills: ["Git", "GitHub", "VS Code", "IntelliJ IDEA"]
+    emoji: "🛠️",
+    skills: ["Git", "GitHub","IntelliJ"],
   },
   {
     name: "Soft Skills",
-    icon: "users",
-    skills: ["Communication", "Problem-Solving", "Team Collaboration", "Agile Mindset"]
-  }
+    emoji: "🤝",
+    skills: [
+      "Communication",
+      "Teamwork",
+      "Problem Solving",
+      "Time Management",
+      "Adaptability",
+      "Leadership"
+    ],
+  },
 ];
