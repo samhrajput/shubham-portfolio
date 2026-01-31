@@ -35,13 +35,7 @@ const Header: React.FC = () => {
           ))}
         </nav>
 
-        <a 
-          href="#contact"
-          onClick={(e) => handleScroll(e, '#contact')}
-          className="hidden sm:block px-5 py-2 bg-[#E59173] text-white text-[10px] font-bold uppercase tracking-widest rounded-lg shadow-lg shadow-[#E59173]/10 hover:bg-[#d47b5d] transition-all"
-        >
-          Hire Me
-        </a>
+        
       </div>
     </header>
   );
